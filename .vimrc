@@ -31,7 +31,7 @@ syntax on
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-
+set completeopt-=preview
 nnoremap <leader>a :cclose<CR>
 let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 1
