@@ -19,6 +19,10 @@ iptables -I INPUT -p tcp -s 192.168.126.0/24 -d 192.168.122.1 --dport 16509 -j A
 
 systemctl reload NetworkManager
 
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+
 useradd -m fpaoline
 chmod 600 fede.pub
 mv fede.pub ~fpaoline
