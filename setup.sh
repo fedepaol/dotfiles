@@ -1,21 +1,21 @@
 #!/bin/bash
 
-dnf install -y vim git hg wget tar libvirt libvirt-devel libvirt-daemon-kvm qemu-kvm gcc gcc-c++ zsh make
+dnf install -y vim git hg wget tar libvirt libvirt-devel libvirt-daemon-kvm qemu-kvm gcc gcc-c++ zsh make chsh podman
 sudo systemctl enable --now libvirtd
 
-#wget https://dl.google.com/go/go1.14.1.linux-amd64.tar.gz
-#tar -C /usr/local -xzf go1.14.1.linux-amd64.tar.gz
-#cat >> /etc/libvirt/libvirtd.conf <<- EOF
-#listen_tls = 0
-#listen_tcp = 1
-#auth_tcp="none"
-#tcp_port = "16509"
-#EOF
+wget https://dl.google.com/go/go1.14.1.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.14.1.linux-amd64.tar.gz
+cat >> /etc/libvirt/libvirtd.conf <<- EOF
+listen_tls = 0
+listen_tcp = 1
+auth_tcp="none"
+tcp_port = "16509"
+EOF
 
-#echo 'LIBVIRTD_ARGS="--listen"' >> /etc/sysconfig/libvirtd
-#echo -e "[main]\ndns=dnsmasq" | tee /etc/NetworkManager/conf.d/openshift.conf
-#echo server=/tt.testing/192.168.126.1 | tee /etc/NetworkManager/dnsmasq.d/openshift.conf
-#systemctl reload NetworkManager
+echo 'LIBVIRTD_ARGS="--listen"' >> /etc/sysconfig/libvirtd
+echo -e "[main]\ndns=dnsmasq" | tee /etc/NetworkManager/conf.d/openshift.conf
+echo server=/tt.testing/192.168.126.1 | tee /etc/NetworkManager/dnsmasq.d/openshift.conf
+systemctl reload NetworkManager
 
 useradd -m fpaoline
 chmod 600 fede.pub
@@ -36,4 +36,5 @@ cp installer/bin/openshift-install openshift/
 mkdir .ssh
 mv fede.pub .ssh/authorized_keys
 restorecon -R -v ~/.ssh
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 EOF
