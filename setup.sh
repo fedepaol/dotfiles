@@ -15,6 +15,8 @@ EOF
 echo 'LIBVIRTD_ARGS="--listen"' >> /etc/sysconfig/libvirtd
 echo -e "[main]\ndns=dnsmasq" | tee /etc/NetworkManager/conf.d/openshift.conf
 echo server=/tt.testing/192.168.126.1 | tee /etc/NetworkManager/dnsmasq.d/openshift.conf
+iptables -I INPUT -p tcp -s 192.168.126.0/24 -d 192.168.122.1 --dport 16509 -j ACCEPT -m comment --comment "Allow insecure libvirt clients"
+
 systemctl reload NetworkManager
 
 useradd -m fpaoline
@@ -37,4 +39,15 @@ mkdir .ssh
 mv fede.pub .ssh/authorized_keys
 restorecon -R -v ~/.ssh
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+git config --global user.name "Federico Paolinelli"
+git config --global user.email "fpaoline@redhat.com"
+git config --global commit.template "~/.gitmessage"
+
+cat >> ~/.gitmessage <<- EOM 
+
+
+Signed-off-by: Federico Paolinelli <fpaoline@redhat.com>
+EOM
+
 EOF
