@@ -28,8 +28,8 @@ chmod 600 fede.pub
 mv fede.pub ~fpaoline
 
 su - fpaoline <<'EOF'
-echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
-PATH=$PATH:/usr/local/go/bin
+echo "export PATH=$PATH:/usr/local/go/bin:~/go/bin" >> ~/.bashrc
+PATH=$PATH:/usr/local/go/bin:~/go/bin
 git clone https://github.com/fedepaol/dotfiles.git
 cp dotfiles/.vimrc ~
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -54,4 +54,5 @@ cat >> ~/.gitmessage <<- EOM
 Signed-off-by: Federico Paolinelli <fpaoline@redhat.com>
 EOM
 
+echo "export PATH=$PATH:/usr/local/go/bin:~/go/bin" >> ~/.zshrc
 EOF
