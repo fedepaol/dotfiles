@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dnf install -y vim git hg wget tar libvirt libvirt-devel libvirt-daemon-kvm qemu-kvm gcc gcc-c++ zsh make chsh podman
+dnf install -y vim git hg wget tar libvirt libvirt-devel libvirt-daemon-kvm qemu-kvm gcc gcc-c++ zsh make chsh podman jq
 sudo systemctl enable --now libvirtd
 
 wget https://dl.google.com/go/go1.14.1.linux-amd64.tar.gz
