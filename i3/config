@@ -225,3 +225,4 @@ mode "$mode_system" {
 bindsym $mod+Shift+Escape mode "$mode_system"
 # needs nitrogen
 exec --no-startup-id nitrogen --restore
+
