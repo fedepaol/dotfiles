@@ -19,6 +19,8 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'fatih/vim-go'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tomasr/molokai'
+Plugin 'dracula/vim'
 call vundle#end()            " required 
 
 if exists("g:did_load_filetypes")
@@ -31,9 +33,17 @@ syntax on
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-set completeopt-=preview
+
 nnoremap <leader>a :cclose<CR>
 let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 1
+let g:go_diagnostics_level = 2
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+set completeopt-=preview
+
+colorscheme dracula
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
