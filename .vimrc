@@ -21,6 +21,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tomasr/molokai'
 Plugin 'dracula/vim'
+Plugin 'morhetz/gruvbox'
 call vundle#end()            " required 
 
 if exists("g:did_load_filetypes")
@@ -42,7 +43,7 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 set completeopt-=preview
 
-colorscheme dracula
+colorscheme molokai
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
