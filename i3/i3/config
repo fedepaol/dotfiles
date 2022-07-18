@@ -180,6 +180,9 @@ bindsym $mod+r mode "resize"
 bar {
 	position top
         status_command i3status 
+	mode hide
+        hidden_state hide
+    	modifier Mod1
 }
 
 exec --no-startup-id start-pulseaudio-x11
@@ -226,3 +229,4 @@ bindsym $mod+Shift+Escape mode "$mode_system"
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id ~/.config/i3/i3-battery-popup
 exec --no-startup-id blueberry-tray
+
