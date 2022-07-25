@@ -1,0 +1,10 @@
+[user]
+	email = fpaoline@redhat.com
+	name = Federico Paolinelli
+[commit]
+    template = ~/.gitmessage
+[core]
+	excludesfile = /home/fedepaol/.gitignore
+	editor = vim
+[init]
+	defaultBranch = main
