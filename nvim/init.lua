@@ -1,0 +1,5 @@
+require('mappings')
+require('config.lazy')
+require('options')
+require('autocommands')
+require('commands')

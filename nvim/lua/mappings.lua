@@ -1,0 +1,6 @@
+vim.keymap.set('n', '<Leader>a', ':cclose<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-n>', ':NERDTreeToggle<CR>', { noremap = false, silent = true })
+vim.keymap.set('n', '<Up>', '<Nop>', { noremap = true })
+vim.keymap.set('n', '<Down>', '<Nop>', { noremap = true })
+vim.keymap.set('n', '<Left>', '<Nop>', { noremap = true })
+vim.keymap.set('n', '<Right>', '<Nop>', { noremap = true })
