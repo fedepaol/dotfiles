@@ -4,14 +4,16 @@ return {
   version = false, -- Never set this value to "*"! Never!
   opts = {
   provider = "watson",
-  vendors = {
+  providers = {
     watson = {
       __inherited_from = 'openai',
       endpoint = "",
       api_key_name = 'bla',
       model = 'watson-ai',
       timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-      temperature = 0,
+      extra_request_body = {
+	temperature = 20 
+      },
     },
   },
   },
