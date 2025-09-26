@@ -1,4 +1,4 @@
-vim.g.mapleader = '\\'
+vim.g.mapleader = ' '
 vim.opt.background = 'dark'
 vim.o.syntax = 'on'
 vim.o.filetype = 'off'

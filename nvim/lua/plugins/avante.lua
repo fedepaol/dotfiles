@@ -3,19 +3,7 @@ return {
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
   opts = {
-  provider = "watson",
-  providers = {
-    watson = {
-      __inherited_from = 'openai',
-      endpoint = "",
-      api_key_name = 'bla',
-      model = 'watson-ai',
-      timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-      extra_request_body = {
-	temperature = 20 
-      },
-    },
-  },
+  provider = "gemini",
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
