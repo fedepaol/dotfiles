@@ -99,6 +99,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH=$PATH:/usr/local/go/bin:~/.local/bin:~/go/bin
+export PATH=$PATH:/usr/local/go/bin:~/.local/bin:~/go/bin:~/.cargo/bin:$HOME/.local/bin
 export EDITOR=vim
 alias kns=kubens
+alias vi="nvim"
+alias vim="nvim"
+alias view="nvim -R"
+alias vimdiff="nvim -d"
