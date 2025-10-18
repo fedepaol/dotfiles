@@ -1,0 +1,9 @@
+profile {
+    output eDP-1 enable
+}
+
+profile {
+    output eDP-1 disable
+    output "ASUSTek COMPUTER INC BE27A H6LMQS088113" enable mode 2560x1440 position 1920,0
+    output "BNQ BenQ GW2480 ETP1L00966SL0" enable mode 1920x1080 position 4480,0 transform 270
+}
