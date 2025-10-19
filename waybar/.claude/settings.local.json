@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pactl get-sink-mute:*)",
+      "Bash(pactl get-sink-volume:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
