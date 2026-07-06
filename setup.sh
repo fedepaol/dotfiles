@@ -3,7 +3,7 @@
 useradd -m fpaoline
 usermod -aG wheel fpaoline
 passwd fpaoline
-dnf install vim tmux git zsh
+dnf install neovim tmux git zsh
 chsh -s /bin/zsh fpaoline
 
 yum remove -y docker \
@@ -94,5 +94,9 @@ ln -sf $DOTFILES/waybar/style.css ~/.config/waybar/style.css
 
 # Zsh (overwrite the one oh-my-zsh created)
 ln -sf $DOTFILES/zsh/zshrc ~/.zshrc
+
+# Aliases
+echo 'alias vim=nvim' >> ~/.zshrc
+echo 'alias v=nvim' >> ~/.zshrc
 "
 
