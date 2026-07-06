@@ -79,6 +79,9 @@ ln -sf $DOTFILES/kanshi/config ~/.config/kanshi/config
 # Neovim
 ln -sfn $DOTFILES/nvim ~/.config/nvim
 
+# lazy.nvim plugin manager
+git clone --filter=blob:none https://github.com/folke/lazy.nvim.git --branch=stable ~/.local/share/nvim/lazy/lazy.nvim
+
 # tmux
 ln -sf $DOTFILES/tmux/tmux.conf ~/.tmux.conf
 
