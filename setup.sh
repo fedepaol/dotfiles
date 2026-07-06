@@ -4,6 +4,7 @@ useradd -m fpaoline
 usermod -aG wheel fpaoline
 passwd fpaoline
 dnf install vim tmux git zsh
+chsh -s /bin/zsh fpaoline
 
 yum remove -y docker \
                   docker-client \
@@ -22,6 +23,10 @@ systemctl enable docker
 usermod -aG docker fpaoline
 
 dnf install -y nodejs python-pip make
+dnf install -y libvirt
+systemctl start libvirtd
+systemctl enable libvirtd
+usermod -aG libvirt fpaoline
 
 # Install Go (latest stable)
 GO_VERSION=$(curl -fsSL https://go.dev/VERSION?m=text | head -1)
