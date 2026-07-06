@@ -3,7 +3,12 @@
 useradd -m fpaoline
 usermod -aG wheel fpaoline
 passwd fpaoline
-dnf install neovim tmux git zsh
+if [ -f /etc/redhat-release ] && grep -qi 'red hat' /etc/redhat-release; then
+  dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm
+  dnf config-manager --set-enabled crb
+fi
+
+dnf install -y neovim tmux git zsh
 chsh -s /bin/zsh fpaoline
 
 yum remove -y docker \
@@ -35,6 +40,15 @@ rm -rf /usr/local/go
 tar -C /usr/local -xzf /tmp/go.tar.gz
 rm /tmp/go.tar.gz
 echo 'export PATH=$PATH:/usr/local/go/bin' >> /home/fpaoline/.zshrc
+
+# Install lazygit
+GOBIN=/usr/local/bin /usr/local/go/bin/go install github.com/jesseduffield/lazygit@latest
+
+# Install pwru
+PWRU_VERSION=$(curl -fsSL https://api.github.com/repos/cilium/pwru/releases/latest | grep '"tag_name"' | cut -d'"' -f4)
+curl -fsSL "https://github.com/cilium/pwru/releases/download/${PWRU_VERSION}/pwru-linux-amd64.tar.gz" -o /tmp/pwru.tar.gz
+tar -C /usr/local/bin -xzf /tmp/pwru.tar.gz pwru
+rm /tmp/pwru.tar.gz
 
 # Install kubectl
 curl -fsSL "https://dl.k8s.io/release/$(curl -fsSL https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" -o /usr/local/bin/kubectl
